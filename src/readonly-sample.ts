@@ -4,19 +4,22 @@ interface Todo {
 }
 
 type ExchangeReadonly<T> = {
-    readonly [P in keyof T]: T[P]
+    readonly [P in keyof T]: T[P];
 }
 
 const todo: Todo = {
     title: "",
     description: ""
-}
-todo.title = "hoge"
-console.dir(todo)
+};
+
+console.log(todo);
 
 const todoReadonly: ExchangeReadonly<Todo> = {
     title: "",
     description: ""
-}
-console.dir(todoReadonly)
-// todoReadonly.title = "hoge"
+};
+
+// readonly プロパティに対して値を代入しようとするとエラーになる
+// todoReadonly.title = "hoge"; // ここでエラー: Cannot assign to 'title' because it is a read-only property.
+
+console.log(todoReadonly);
