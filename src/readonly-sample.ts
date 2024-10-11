@@ -4,6 +4,7 @@ interface Todo {
 }
 
 type ExchangeReadonly<T> = {
+    // TのキーをPとする
     readonly [P in keyof T]: T[P];
 }
 
