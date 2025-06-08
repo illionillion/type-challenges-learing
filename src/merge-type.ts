@@ -1,6 +1,6 @@
 // Merge型を実装してください。
 // Merge型は、2つのオブジェクト型を受け取り、それらをマージした型を返す型です。
-type Merge<F, S> = {
+export type Merge<F, S> = {
   [K in keyof F | keyof S]: K extends keyof S
     ? S[K]
     : K extends keyof F
@@ -8,14 +8,14 @@ type Merge<F, S> = {
     : never;
 };
 
-type foo = {
+export type foo = {
   name: string;
   age: string;
 };
-type coo = {
+export type coo = {
   age: number;
   sex: string;
   phoneNumber: number
 };
 
-type Result = Merge<foo, coo>; // expected to be {name: string, age: number, sex: string}
+export type Result = Merge<foo, coo>; // expected to be {name: string, age: number, sex: string}

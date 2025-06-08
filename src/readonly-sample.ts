@@ -1,9 +1,9 @@
-interface Todo {
+export interface Todo {
     title: string;
     description: string;
 }
 
-type ExchangeReadonly<T> = {
+export type ExchangeReadonly<T> = {
     // TのキーをPとする
     readonly [P in keyof T]: T[P];
 }

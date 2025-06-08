@@ -1,5 +1,5 @@
 // Flattenを実装してください。
-type Flatten<S extends any[], T extends any[] = []> = S extends [
+export type Flatten<S extends any[], T extends any[] = []> = S extends [
   infer First,
   ...infer Rest
 ]
@@ -7,4 +7,4 @@ type Flatten<S extends any[], T extends any[] = []> = S extends [
     ? Flatten<[...First, ...Rest], T>
     : Flatten<[...Rest], [...T, First]>
   : T;
-type flatten = Flatten<[1, 2, [3, 4], [[5]]]>; // [1, 2, 3, 4, 5]
+export type flatten = Flatten<[1, 2, [3, 4], [[5]]]>; // [1, 2, 3, 4, 5]
